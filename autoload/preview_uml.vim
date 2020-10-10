@@ -32,7 +32,7 @@ function! s:init() abort
           \ 'bufid': bufnr(),
           \ 'winid': win_getid()
           \ }
-    setlocal buftype=nofile nolist
+    setlocal buftype=nofile nolist nowrap
     nnoremap <buffer> <silent> q :bw!<CR>
   endif
 
