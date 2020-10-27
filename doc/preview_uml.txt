@@ -77,7 +77,7 @@ TODO						*preview_uml-todo*
 ==============================================================================
 CHANGELOG					*preview_uml-changelog*
 2020-10-19	0.0.1 release
-			add *:PreviewUML*
+			add |:PreviewUML|
 
 ==============================================================================
 vim:tw=78:ts=8:ft=help:norl:noet:fen:
