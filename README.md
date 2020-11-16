@@ -1,5 +1,5 @@
 # preview-uml.vim
-This is plugin can previewing uml.
+This is Vim/Neovim plugin that can previewing uml.
 
 ![](https://i.imgur.com/9Uyr1xC.gif)
 

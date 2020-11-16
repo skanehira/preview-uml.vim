@@ -1,4 +1,4 @@
-*preview_uml.txt*	preview uml with plantuml server
+*preview_uml.txt*	Vim/Neovim plugin that can previewing uml.
 
 Author: skanehira <sho19921005@gmail.com>
 License : MIT license  {{{
@@ -36,7 +36,7 @@ CHANGELOG			|preview_uml-changelog|
 ==============================================================================
 INTRODUCTION					*preview_uml-introduction*
 
-*preview_uml* is a Vim plugin 
+*preview_uml* is Vim/Neovim plugin that can previewing uml 
 
 Latest version:
 https://github.com/skanehira/preview-uml.vim
@@ -76,7 +76,8 @@ TODO						*preview_uml-todo*
 
 ==============================================================================
 CHANGELOG					*preview_uml-changelog*
-2020-10-19	0.0.1 release
+2020/11/16	make work with neovim
+2020/10/19	0.0.1 release
 			add |:PreviewUML|
 
 ==============================================================================

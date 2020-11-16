@@ -4,6 +4,17 @@
 
 let s:preview_bufname = 'preview_uml'
 
+if has('nvim')
+  function! s:win_execute(winid, cmd) abort
+    let curwinid = win_getid()
+    call win_gotoid(a:winid)
+    call execute(a:cmd)
+    call win_gotoid(curwinid)
+  endfunction
+else
+  let s:win_execute = function('win_execute')
+endif
+
 function! preview_uml#preview() abort
   augroup preview_uml
     au!
@@ -46,19 +57,19 @@ function! s:update() abort
   endif
 
   let cmd = printf('curl -X POST -s -i %s/form -d "text=%s"', s:url,
-        \ body->join("\n")->escape('"'))
+        \ escape(join(body, "\n"), '"'))
   let resp = systemlist(cmd)
-  let location = resp->filter('v:val =~ "Location"')
+  let location = filter(resp, 'v:val =~ "Location"')
   if empty(location)
     call <SID>echo_err('invalid response')
-    call win_execute(s:preview.winid, 'bw!')
+    call s:win_execute(s:preview.winid, 'bw!')
     return
   endif
 
-  let url = location[0][10:]->trim()->substitute('uml', 'txt', 'g')
+  let url = substitute(trim(location[0][10:]), 'uml', 'txt', 'g')
   let resp = systemlist(printf('curl -s %s', url))
 
-  call win_execute(s:preview.winid, '%d_')
+  call s:win_execute(s:preview.winid, '%d_')
   call setbufline(s:preview.bufid, 1, resp)
 endfunction
 
