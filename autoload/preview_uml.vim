@@ -63,6 +63,7 @@ function! s:update() abort
   if empty(location)
     call <SID>echo_err('invalid response')
     call s:win_execute(s:preview.winid, 'bw!')
+    augroup preview_uml | au! | augroup END
     return
   endif
 
